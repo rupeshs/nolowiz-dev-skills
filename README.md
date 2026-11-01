@@ -7,7 +7,7 @@ Claude Code skills and plugins for the product development team.
 Run these inside Claude Code:
 
 ```
-/plugin marketplace add nolowiz/nolowiz-dev-skills
+/plugin marketplace add rupeshs/nolowiz-dev-skills
 /plugin install dev-workflow@nolowiz-dev-skills
 ```
 
@@ -33,7 +33,7 @@ Add this to a product repo's `.claude/settings.json`:
 {
   "extraKnownMarketplaces": {
     "nolowiz-dev-skills": {
-      "source": { "source": "github", "repo": "nolowiz/nolowiz-dev-skills" },
+      "source": { "source": "github", "repo": "rupeshs/nolowiz-dev-skills" },
       "autoUpdate": true
     }
   },
