@@ -4,8 +4,8 @@
   "owner": { "name": "nolowiz" },
   "plugins": [
     {
-      "name": "dev-workflow",
-      "source": "./plugins/dev-workflow",
+      "name": "nz",
+      "source": "./plugins/nz",
       "description": "Skills for the product development team: specs, planning and reviews.",
       "version": "0.1.0"
     }

@@ -9,7 +9,7 @@ Turn a half-formed development idea into a written spec by interviewing the user
 
 ## Input
 
-The user supplies a **development topic**, either as the skill argument (`/spec-interview add rate limiting to the public API`) or in their message.
+The user supplies a **development topic**, either as the skill argument (`/nz:spec-interview add rate limiting to the public API`) or in their message.
 
 - If no topic was given, ask one question: "What do you want to spec out?" and wait.
 - Restate the topic in one line so the user can correct it before the interview starts.

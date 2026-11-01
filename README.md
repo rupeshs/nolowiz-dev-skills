@@ -8,13 +8,13 @@ Run these inside Claude Code:
 
 ```
 /plugin marketplace add rupeshs/nolowiz-dev-skills
-/plugin install dev-workflow@nolowiz-dev-skills
+/plugin install nz@nolowiz-dev-skills
 ```
 
 ## Usage example
 
 ```
-/spec-interview add rate limiting to the public API
+/nz:spec-interview add rate limiting to the public API
 ```
 
 ## Updating
@@ -24,6 +24,24 @@ Run these inside Claude Code:
 ```
 
 Or turn on auto-update under `/plugin` → Marketplaces.
+
+## Uninstall
+
+Remove the plugin:
+
+```
+/plugin uninstall nz@nolowiz-dev-skills
+```
+
+To remove the marketplace too:
+
+```
+/plugin marketplace remove nolowiz-dev-skills
+```
+
+Removing the marketplace also uninstalls any plugins you installed from it.
+
+If you used team auto-setup, also delete the `extraKnownMarketplaces` and `enabledPlugins` entries from the repo's `.claude/settings.json`. Otherwise the plugin is offered again the next time someone opens the repo.
 
 ## Team auto-setup
 
@@ -37,7 +55,7 @@ Add this to a product repo's `.claude/settings.json`:
       "autoUpdate": true
     }
   },
-  "enabledPlugins": { "dev-workflow@nolowiz-dev-skills": true }
+  "enabledPlugins": { "nz@nolowiz-dev-skills": true }
 }
 ```
 
@@ -45,7 +63,7 @@ Add this to a product repo's `.claude/settings.json`:
 
 | Plugin | Skills |
 | --- | --- |
-| `dev-workflow` | `spec-interview` |
+| `nz` | `spec-interview` |
 
 ## Contributing
 
