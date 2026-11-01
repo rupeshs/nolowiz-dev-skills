@@ -13,7 +13,7 @@ Run these inside Claude Code:
 
 ## Usage examples
 
-Both skills interview you first, so a short description of the feature or topic is enough. Run either one without a description and it asks what you want to work on.
+A short description is enough to start. Run any skill without one and it asks what you want to work on.
 
 ### Define what to build: `prd-interview`
 
@@ -40,6 +40,20 @@ Use this when you know what to build and need the technical design. It checks yo
 1. Run `/nz:prd-interview scheduled report exports` and review `PRD.md` with the team.
 2. Run `/nz:spec-interview scheduled report exports`. It reads `PRD.md` and doesn't ask those questions again.
 3. Build from `PRD.md` and `SPEC.md`.
+
+### Fix a bug: `fix-bug`
+
+Use this when something is broken. It reproduces the bug, finds the root cause, writes a regression test, makes the smallest fix and verifies it. Include any error messages, logs or steps to reproduce the bug. It leaves committing to you.
+
+```
+/nz:fix-bug exports fail with a 500 for reports over 50,000 rows
+/nz:fix-bug login redirects to a blank page on Safari since Friday's release
+/nz:fix-bug the checkout test fails intermittently in CI
+```
+
+Before changing code, it checks what the fix could affect and records which tests pass. Afterwards it confirms that those tests still pass.
+
+If the fix is large or risky, such as a design change, a data migration or a change to shared code, it tells you and writes `FIX-PLAN.md`. It waits for your approval before changing any code.
 
 ## Updating
 
@@ -90,7 +104,7 @@ Add this to a product repo's `.claude/settings.json`:
 
 | Plugin | Skills |
 | --- | --- |
-| `nz` | `prd-interview`, `spec-interview` |
+| `nz` | `prd-interview`, `spec-interview`, `fix-bug` |
 
 ## Contributing
 
