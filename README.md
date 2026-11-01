@@ -13,7 +13,7 @@ Run these inside Claude Code:
 
 ## Usage examples
 
-A short description is enough to start. Run any skill without one and it asks what you want to work on.
+A short description is enough to start. If you leave it out, `prd-interview`, `spec-interview` and `fix-bug` ask what you want to work on.
 
 ### Define what to build: `prd-interview`
 
@@ -54,6 +54,19 @@ Use this when something is broken. It reproduces the bug, finds the root cause, 
 Before changing code, it checks what the fix could affect and records which tests pass. Afterwards it confirms that those tests still pass.
 
 If the fix is large or risky, such as a design change, a data migration or a change to shared code, it tells you and writes `FIX-PLAN.md`. It waits for your approval before changing any code.
+
+### Write release notes: `release-notes`
+
+Use this when preparing a release. It reads what merged since the last release, or a developer's notes document with tickets (Word, PDF, Markdown or pasted text). It removes ticket numbers, leaves out internal work, and writes customer-facing notes in plain language to `CHANGELOG.md`, using the [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) format and [Semantic Versioning](https://semver.org/). Dev and QA get a review list showing where each note came from and what to confirm. It doesn't publish anything.
+
+```
+/nz:release-notes
+/nz:release-notes v1.4.0..v1.5.0
+/nz:release-notes docs/sprint-42-dev-notes.docx
+/nz:release-notes version 2.3 for mobile app customers
+```
+
+With no range or document, it covers everything since the latest tag. Your original document isn't changed, and ticket numbers appear only in the review list, not in the public notes.
 
 ## Updating
 
@@ -104,7 +117,7 @@ Add this to a product repo's `.claude/settings.json`:
 
 | Plugin | Skills |
 | --- | --- |
-| `nz` | `prd-interview`, `spec-interview`, `fix-bug` |
+| `nz` | `prd-interview`, `spec-interview`, `fix-bug`, `release-notes` |
 
 ## Contributing
 
