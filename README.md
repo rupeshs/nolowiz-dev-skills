@@ -43,11 +43,14 @@ Use this when you know what to build and need the technical design. It checks yo
 
 ## Updating
 
-```
-/plugin marketplace update nolowiz-dev-skills
-```
+Auto-update is off by default for this marketplace. To turn it on, run `/plugin`, open the **Marketplaces** tab, select `nolowiz-dev-skills` and choose **Enable auto-update**.
 
-Or turn on auto-update under `/plugin` → Marketplaces.
+To update manually, run these in your terminal, then restart Claude Code:
+
+```
+claude plugin marketplace update nolowiz-dev-skills
+claude plugin update nz@nolowiz-dev-skills
+```
 
 ## Uninstall
 
