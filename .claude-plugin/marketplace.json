@@ -1,0 +1,13 @@
+{
+  "name": "nolowiz-dev-skills",
+  "description": "Claude Code skills and plugins for the nolowiz product development team.",
+  "owner": { "name": "nolowiz" },
+  "plugins": [
+    {
+      "name": "dev-workflow",
+      "source": "./plugins/dev-workflow",
+      "description": "Skills for the product development team: specs, planning and reviews.",
+      "version": "0.1.0"
+    }
+  ]
+}
