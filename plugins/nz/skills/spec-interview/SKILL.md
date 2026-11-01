@@ -18,6 +18,7 @@ The user supplies a **development topic**, either as the skill argument (`/nz:sp
 
 Before asking anything, learn what you can on your own so you never ask the user something the code already answers.
 
+- If `PRD.md` exists (or the user named a PRD), read it first. Treat its customer problem, goals, user stories, acceptance criteria and non-functional requirements as decided, and carry them into the spec instead of asking again. Raise an item only if it conflicts with the code or can't be built as written.
 - If a codebase is available, look for what the topic touches: frameworks, existing middleware, config, infrastructure (e.g. for rate limiting: API gateway, auth/API-key handling, Redis or other shared stores, existing 429 handling).
 - Note conventions the spec should follow (naming, config style, error format, testing setup).
 - Turn findings into informed questions: "You already use Redis for sessions — reuse it for counters?" beats "Where should state be stored?"

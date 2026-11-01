@@ -11,11 +11,35 @@ Run these inside Claude Code:
 /plugin install nz@nolowiz-dev-skills
 ```
 
-## Usage example
+## Usage examples
+
+Both skills interview you first, so a short description of the feature or topic is enough. Run either one without a description and it asks what you want to work on.
+
+### Define what to build: `prd-interview`
+
+Use this when the team needs to agree on what to build and why. It writes `PRD.md` with the customer problem, success metrics, user stories, acceptance criteria and non-functional requirements.
+
+```
+/nz:prd-interview scheduled report exports
+/nz:prd-interview let customers download invoices as PDF
+/nz:prd-interview single sign-on for enterprise customers
+```
+
+### Define how to build it: `spec-interview`
+
+Use this when you know what to build and need the technical design. It checks your codebase, then writes `SPEC.md` with the interfaces, data, failure modes, rollout and testing plan.
 
 ```
 /nz:spec-interview add rate limiting to the public API
+/nz:spec-interview migrate background jobs to a queue
+/nz:spec-interview add audit logging to admin actions
 ```
+
+### Use both for a new feature
+
+1. Run `/nz:prd-interview scheduled report exports` and review `PRD.md` with the team.
+2. Run `/nz:spec-interview scheduled report exports`. It reads `PRD.md` and doesn't ask those questions again.
+3. Build from `PRD.md` and `SPEC.md`.
 
 ## Updating
 
@@ -63,7 +87,7 @@ Add this to a product repo's `.claude/settings.json`:
 
 | Plugin | Skills |
 | --- | --- |
-| `nz` | `spec-interview` |
+| `nz` | `prd-interview`, `spec-interview` |
 
 ## Contributing
 
