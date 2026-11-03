@@ -39,7 +39,23 @@ Use this when you know what to build and need the technical design. It checks yo
 
 1. Run `/nz:prd-interview scheduled report exports` and review `PRD.md` with the team.
 2. Run `/nz:spec-interview scheduled report exports`. It reads `PRD.md` and doesn't ask those questions again.
-3. Build from `PRD.md` and `SPEC.md`.
+3. Review `SPEC.md`, update it, and change its status from `Draft` to `Approved`.
+4. Run `/nz:implement-spec` to build it.
+
+### Build from a spec: `implement-spec`
+
+Use this when `SPEC.md` has been reviewed and you're ready to build. It breaks the spec into tasks, writes them to `IMPL-PLAN.md` with a coverage table that maps every spec item to a task and a test, and waits for your approval. Then it builds one task at a time, test first, and ticks each task off as soon as its tests pass.
+
+```
+/nz:implement-spec
+/nz:implement-spec SPEC-rate-limiting.md
+/nz:implement-spec only T4
+/nz:implement-spec phase 1
+```
+
+To continue later, in a new session or as a teammate, run `/nz:implement-spec` again. It checks that the tasks marked done really pass, notices if `SPEC.md` changed since the plan was written, and carries on from the next task.
+
+It builds only what the spec says. If the spec turns out to be wrong or unclear, it stops and asks, and records the decision in `IMPL-PLAN.md`. `SPEC.md` itself only changes status (`Approved`, `In progress`, `Implemented`) unless you agree to change a requirement. It leaves committing to you. Commit `IMPL-PLAN.md` with the code so others can see progress.
 
 ### Fix a bug: `fix-bug`
 
@@ -117,7 +133,7 @@ Add this to a product repo's `.claude/settings.json`:
 
 | Plugin | Skills |
 | --- | --- |
-| `nz` | `prd-interview`, `spec-interview`, `fix-bug`, `release-notes` |
+| `nz` | `prd-interview`, `spec-interview`, `implement-spec`, `fix-bug`, `release-notes` |
 
 ## Contributing
 

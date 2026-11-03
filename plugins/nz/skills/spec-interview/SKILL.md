@@ -134,3 +134,5 @@ Unresolved items, each with who/what can resolve it.
 
 ## Finish
 Tell the user the spec is written, where it is, and list any open questions in one or two lines. Don't recap the interview.
+
+End by telling them the next step: review and update the spec, change its status to `Approved`, then run `/nz:implement-spec` to build it.
