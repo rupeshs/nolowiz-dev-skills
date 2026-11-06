@@ -13,7 +13,7 @@ Run these inside Claude Code:
 
 ## Usage examples
 
-A short description is enough to start. If you leave it out, `prd-interview`, `spec-interview` and `fix-bug` ask what you want to work on.
+A short description is enough to start. If you leave it out, `prd-interview`, `spec-interview`, `fix-bug` and `make-tool` ask what you want to work on.
 
 ### Define what to build: `prd-interview`
 
@@ -84,6 +84,18 @@ Use this when preparing a release. It reads what merged since the last release, 
 
 With no range or document, it covers everything since the latest tag. Your original document isn't changed, and ticket numbers appear only in the review list, not in the public notes.
 
+### Make a tool or script: `make-tool`
+
+Use this for a standalone tool, script, automation, integration or small app that doesn't need a PRD or spec. It asks a few short rounds of questions about your access, environment, data and the real problem, checks whether the idea can actually work, then shows a one-page plan. It changes nothing on your machine until you approve the plan, then builds it, tests it and reports what is still untested. It leaves committing to you.
+
+```
+/nz:make-tool a script that backs up my photos to a NAS every night
+/nz:make-tool a tool to bulk-rename files from a spreadsheet
+/nz:make-tool post failed CI runs to our team chat
+```
+
+For a product feature the team needs to agree on, use `prd-interview` and `spec-interview` instead.
+
 ## Updating
 
 Auto-update is off by default for this marketplace. To turn it on, run `/plugin`, open the **Marketplaces** tab, select `nolowiz-dev-skills` and choose **Enable auto-update**.
@@ -133,7 +145,7 @@ Add this to a product repo's `.claude/settings.json`:
 
 | Plugin | Skills |
 | --- | --- |
-| `nz` | `prd-interview`, `spec-interview`, `implement-spec`, `fix-bug`, `release-notes` |
+| `nz` | `prd-interview`, `spec-interview`, `implement-spec`, `fix-bug`, `release-notes`, `make-tool` |
 
 ## Contributing
 

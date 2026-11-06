@@ -7,7 +7,7 @@
       "name": "nz",
       "source": "./plugins/nz",
       "description": "Skills for the product development team: specs, planning and reviews.",
-      "version": "0.5.0"
+      "version": "0.6.0"
     }
   ]
 }
