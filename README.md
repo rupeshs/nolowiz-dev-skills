@@ -13,7 +13,7 @@ Run these inside Claude Code:
 
 ## Usage examples
 
-A short description is enough to start. If you leave it out, `prd-interview`, `spec-interview`, `fix-bug` and `make-tool` ask what you want to work on.
+A short description is enough to start. If you leave it out, `prd-interview`, `spec-interview`, `fix-bug`, `make-tool` and `make-poc` ask what you want to work on.
 
 ### Define what to build: `prd-interview`
 
@@ -96,6 +96,20 @@ Use this for a standalone tool, script, automation, integration or small app tha
 
 For a product feature the team needs to agree on, use `prd-interview` and `spec-interview` instead.
 
+### Build a quick proof of concept: `make-poc`
+
+Use this to find out whether an idea works before committing to it. It turns your requirement into one question the POC must answer, checks which isolation tools you have (uv, Docker), and writes `POC-PLAN.md` with the success criteria, stack, isolation and cleanup commands. It builds nothing until you approve the plan.
+
+Everything runs in an isolated environment inside `poc/<slug>/`: Python in a uv virtual environment, services such as databases in Docker Compose, Node packages kept local. Nothing is installed into your system Python, global packages or host services, and it never installs uv or Docker without asking. After the build it runs the POC, checks each success criterion and records the answer, evidence and shortcuts in `POC-PLAN.md`. It leaves committing to you.
+
+```
+/nz:make-poc extract invoice totals from scanned PDFs
+/nz:make-poc can Postgres full-text search replace our Elasticsearch for product search
+/nz:make-poc a chat page that answers questions from our docs folder
+```
+
+To remove a POC, run the cleanup command from its `POC-PLAN.md`, then delete the folder.
+
 ## Updating
 
 Auto-update is off by default for this marketplace. To turn it on, run `/plugin`, open the **Marketplaces** tab, select `nolowiz-dev-skills` and choose **Enable auto-update**.
@@ -145,7 +159,7 @@ Add this to a product repo's `.claude/settings.json`:
 
 | Plugin | Skills |
 | --- | --- |
-| `nz` | `prd-interview`, `spec-interview`, `implement-spec`, `fix-bug`, `release-notes`, `make-tool` |
+| `nz` | `prd-interview`, `spec-interview`, `implement-spec`, `fix-bug`, `release-notes`, `make-tool`, `make-poc` |
 
 ## Contributing
 
